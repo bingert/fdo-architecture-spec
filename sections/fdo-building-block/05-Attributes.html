@@ -13,7 +13,7 @@
                 The first element of the tuple MUST be either a PID that resolves to an attribute definition, or a human-readable name of an attribute. 
             </li>
             <li>
-                The second element (called value) can be any literal. If the first element refers to an attribute definition, then the value MUST be successfully validated (see section 8) against the attribute definition at least upon creation and update.
+                The second element (called value) can be any literal. If the first element refers to an attribute definition, then the value MUST be successfully validated (see <a href="#validation"></a>) against the attribute definition at least upon creation and update.
             </li>
         </ul>
     </li>
@@ -21,7 +21,7 @@
         [R5-3] There are three qualitative categories of attributes (or attribute definitions): mandatory, optional, and community-defined attributes. 
         <ul>
             <li>
-                The mandatory attributes are defined by the FDO Forum. These attributes MUST be used in each <a>FDO Record</a>. This set is defined in the root profile (see section 5.4). 
+                The mandatory attributes are defined by the FDO Forum. These attributes MUST be used in each <a>FDO Record</a>. This set is defined in the root profile (see <a href="#profiles"></a>). 
             </li>    
             <li>
                 The optional attributes are defined by the FDO Forum. It is a list of pre-defined attributes which are frequently reused by use-cases within their <a>FDO Record</a>s and profiles (see Table X in appendix). Use-cases SHOULD reuse these attributes, whenever suitable, for better harmonization of FDO information. 
