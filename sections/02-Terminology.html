@@ -82,7 +82,8 @@
         and processing of the data included in the FDO.
     </li>
     <li>
-        <b>FDO Attribute</b>: An <a>FDO Attribute</a> is a tuple in the FDO record where the first element in the tuple points
+        <b>FDO Attribute</b>: An <a>FDO Attribute</a> is a tuple in the FDO record where the first element in the tuple
+        points
         to an attribute definition and the second element is a value that complies with the given attribute definition.
         The attribute values should be validated against the attribute definition where available. Attributes must be
         defined and registered in open registries. We distinguish three categories of attributes: (1) mandatory
@@ -166,7 +167,8 @@
     </li>
     <li>
         <b>FDO Type</b>: This is a mandatory attribute in the FDO record that informs machines what type the associated
-        resource has. The <a>FDO Type</a> is an intentionally chosen entry point that signals some default processing semantics
+        resource has. The <a>FDO Type</a> is an intentionally chosen entry point that signals some default processing
+        semantics
         for the resource.
     </li>
     <li>
@@ -226,7 +228,7 @@
         <b>Persistence</b>: The term persistence is being mentioned frequently in this document and in the realm of
         FDOs persistence is an important property. In this document, “persistence” is meant as a promise of an
         initiative or service provider to maintain specifications or services for a long period of time. It is up to the
-        users to decide whether they trust such a promise. Crucial is the persistence of the PID system 
+        users to decide whether they trust such a promise. Crucial is the persistence of the PID system
         which needs to guarantee referential stability. Even if the (data) resource encapsulated by an FDO will be
         deleted, for example after 10 years, which in science is common practice for experimental data, the PID and the
         corresponding FDO record should stay without restriction, extended with a tombstone note. Therefore, a PID must
@@ -252,8 +254,8 @@
         heart of the FDO and all other components are there to make the resource and its metadata machine actionable.
     </li>
     <li>
-        <b>PID Resolution</b>: A PID resolves to structured information containing attributes characterised by key-value
-        pairs. In the context of FDOs the resolved record needs to be compliant with a specified FDO profile. This leads
+        <b>PID Resolution</b>: A PID resolves to structured information containing attributes characterised by tuples.
+        In the context of FDOs the resolved record needs to be compliant with a specified FDO profile. This leads
         to predictable resolution results.
     </li>
     <li>
@@ -304,12 +306,15 @@
         statements on how versioning is handled.
     </li>
     <li>
-        <b>FDO Types</b>: Typing is an essential building block of the FDO concept. The term “type/typing” 
+        <b>FDO Types</b>: Typing is an essential building block of the FDO concept. The term “type/typing”
         refers to several concepts simultaneously:
         <ul>
-            <li>Attribute definitions are types for properties of an FDO and are instantiated by attributes in the FDO record.</li>
-            <li>The value of the 0.FDO/Type attribute in the FDO record is a type of the resource being represented by the FDO.</li>
-            <li>The value of the 0.FDO/Profile attribute in the FDO record is a type of the FDO record (which instantiates the profile).</li>
+            <li>Attribute definitions are types for properties of an FDO and are instantiated by attributes in the FDO
+                record.</li>
+            <li>The value of the 0.FDO/Type attribute in the FDO record is a type of the resource being represented by
+                the FDO.</li>
+            <li>The value of the 0.FDO/Profile attribute in the FDO record is a type of the FDO record (which
+                instantiates the profile).</li>
         </ul>
         All these types together form the FDO type system.
     </li>
