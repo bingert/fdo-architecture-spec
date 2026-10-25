@@ -1,4 +1,4 @@
-<h3 id="attributes">FDO Attributes</h3>
+<h3 id="attributes">FDO Attribute Definitions</h3>
 <dl>
     <!--    TODO: move this to the record section -->
     <dt><h4 class="rule-heading" id="rule-r5_1">[R5-1] Attribute Tuple</h4></dt>
@@ -140,62 +140,50 @@
 </table>
     </dd>
 
-    <dt><h4 class="rule-heading" id="rule-r-attr-5">[R-Attr-5] <dfn data-lt="attribute definition mechanisms|attribute mechanism|attribute mechanisms">Attribute Definition Mechanisms</dfn></h4></dt>
-
-
-
-
-
-
-    <dt><h4 class="rule-heading" id="rule-r5_5">[R5-5] Syntactic Rules</h4></dt>
+    <dt><h4 class="rule-heading" id="rule-r-attr-5">[R-Attr-5] <dfn data-lt="attribute validation mechanisms|validation mechanism|validation mechanisms">Attribute Validation Mechanisms</dfn></h4></dt>
     <dd>
-        An <a>attribute definition</a> specifies syntactic, <a>machine readable</a> rules for an <a>attribute</a> in an
-        <a>FDO Record</a> (that is, the <a>attribute</a> instantiates the <a>attribute definition</a>).
-    </dd>
-
-    <dt><h4 class="rule-heading" id="rule-r5_8">[R5-8] <dfn data-lt="syntactic rules">Syntax Reference</dfn></h4></dt>
-<!--    TODO: reformulate-->
-    <dd>
-        To specify syntactic, <a>machine readable</a> rules, an <a>attribute definition</a> MUST contain a <a>syntax definition</a> by
-        using the <a>attribute</a> <a><em>0.FDO/DataType</em></a> with a reference to a <a>syntax definition</a> (see <a href="#syntax-def"></a>) as its value.
-        Furthermore, the <a>attribute definition</a> MUST contain the <a>attribute</a> (<a><em>0.FDO/ValidationMechanism</em></a>, Syntax).
-        To instantiate the <a>attribute definition</a> in an <a>FDO Record</a>,
+        <p>
+            An <a>attribute definition</a> MAY specify <a>validation</a> rules on the value of any <a>attributes</a>
+            instantiating the <a>attribute definition</a>. This specification defines five different <a>attribute
+            validation mechanisms</a> that MAY be used to define such <a>validation</a> rules.
+        </p>
+        <p>
+            Each <a>attribute validation mechanisms</a> requires different <a>attributes</a> in its <a>attribute
+            definition</a> <a>record</a> to denote those <a>validation</a> rules. Hence, each of these mechanisms uses
+            its own <a>FDO profile</a>. If an <a>attribute definition</a> intends to use one of these mechanisms, it
+            MUST indicate this by using the respective <a>profile</a> as the value of the <a><em>0.FDO/Profile</em></a>
+            <a>attribute</a> in its <a>attribute definition</a> <a>record</a>.
+            The <a>attribute validation mechanisms</a> are:
+        </p>
         <ul>
-            <li>the first element MUST be either the <a>PID</a> or a name of the <a>attribute definition</a>, and</li>
-            <li>the value MUST <a>validate</a> against the <a>syntax definition</a> referenced in the
-                <a>attribute definition</a> at least upon creation and update of the <a>FDO Record</a>.
-            </li>
+            <li>Syntax, using the 0.FDO/AttributeDefSyntax profile (see ...)</li>
+            <li>Union, using the 0.FDO/AttributeDefUnion profile (see ...)</li>
+            <li>Inline Combination, using the 0.FDO/AttributeDefComb profile (see ...)</li>
+            <li>Profile Referencing, using the 0.FDO/AttributeDefProfileRef profile (see ...)</li>
+            <li>Attribute Referencing, using the 0.FDO/AttributeDefAttrRef profile (see ...)</li>
         </ul>
+        <p>Each mechanism is further explained in 4.5.1 - 4.5.5. To use those</p>
     </dd>
+    </dl>
 
-    <dt><h4 class="rule-heading" id="rule-r5_9">[R5-9] <dfn data-lt="union type|attribute union">Union Validation</dfn></h4></dt>
+    <section data-include="sections/01_fdo-building-block/05-Attribute-Definition-Mechanisms/1-syntax.html" id="syntax"></section>
+
+    <section data-include="sections/01_fdo-building-block/05-Attribute-Definition-Mechanisms/2-union.html" id="union"></section>
+
+    <section data-include="sections/01_fdo-building-block/05-Attribute-Definition-Mechanisms/3-inlinecombination.html" id="comb"></section>
+
+    <section data-include="sections/01_fdo-building-block/05-Attribute-Definition-Mechanisms/4-profilereferencing.html" id="profileref"></section>
+
+    <section data-include="sections/01_fdo-building-block/05-Attribute-Definition-Mechanisms/5-attributereferencing.html" id="attrref"></section>
+
+
+<dt><h4 class="rule-heading" id="rule-r6_6">[R6-6] <dfn>Community Syntax Definitions</dfn></h4></dt>
     <dd>
-        An <a>attribute definition</a> A MAY be a union of <a>attribute definitions</a> (a.k.a. “any of”)
-        <em>A<sub>1</sub>,...,A<sub>n</sub></em> by containing the <a>attribute</a> (<a><em>0.FDO/ValidationMechanism</em></a>, Union)
-        and the <a>attributes</a> (<a><em>0.FDO/DataType</em></a>, <em>A<sub>i</sub></em>) for i=1,...,n.
-        To instantiate this <a>attribute definition</a> in another <a>FDO record</a>,
-        <ul>
-            <li>the first element MUST be the <a>PID</a> or a name of <em>A</em>,</li>
-            <li>the value MUST comply with the <a>syntactic rules</a> of at least one of <em>A<sub>1</sub>,...,A<sub>n</sub></em>.</li>
-        </ul>
+        Community-specified <a>attribute definitions</a> MAY be implemented by communities of practice in the DTR or any other suitable open registry [[!RDA-DTR-WG]].
+        Special rules apply in case <a>attribute definitions</a> are updated, see <a href="#rule-r11_3"></a> – <a href="#rule-r11_6"></a>.
     </dd>
 
-
-    <dt><h4 class="rule-heading" id="rule-r5_10">[R5-10] <dfn data-lt="inline combination">Composition Validation</dfn></h4></dt>
-    <dd>
-        An <a>attribute definition</a> A MAY be a composition of <a>attribute definitions</a> (a.k.a. “all of”)
-        <em>A<sub>1</sub>,...,A<sub>n</sub></em> by
-        containing the <a>attribute</a> (<a><em>0.FDO/ValidationMechanism</em></a>, InlineCombination) and the <a>attributes</a>
-        (<a><em>0.FDO/DataType</em></a>, <em>A<sub>i</sub></em>) for i=1,...,n.
-        To instantiate this <a>attribute definition</a> in another <a>FDO record</a>,
-        <ul>
-            <li>the first element MUST be the <a>PID</a> or a name of <em>A</em>,</li>
-            <li>the value MUST be an inline combination of instantiations of A<sub>1</sub>,...,A<sub>n</sub>.
-                The format of this inline combination (e.g., JSON, JSON-LD, …) MAY depend on the implementation.
-            </li>
-        </ul>
-    </dd>
-
+<dl>
     <dt><h4 class="rule-heading" id="rule-r5_11">[R5-11] <dfn>Advanced Referencing Mechanisms</dfn></h4></dt>
 <!--    TODO: Remove since duplicate?-->
     <dd>

@@ -1,0 +1,16 @@
+<h4 id="comb">Inline Combination</h4>
+
+<dt><h4 class="rule-heading" id="rule-r5_10">[R5-10] <dfn data-lt="inline combination">Composition Validation</dfn></h4></dt>
+    <dd>
+        An <a>attribute definition</a> A MAY be a composition of <a>attribute definitions</a> (a.k.a. “all of”)
+        <em>A<sub>1</sub>,...,A<sub>n</sub></em> by
+        containing the <a>attribute</a> (<a><em>0.FDO/ValidationMechanism</em></a>, InlineCombination) and the <a>attributes</a>
+        (<a><em>0.FDO/DataType</em></a>, <em>A<sub>i</sub></em>) for i=1,...,n.
+        To instantiate this <a>attribute definition</a> in another <a>FDO record</a>,
+        <ul>
+            <li>the first element MUST be the <a>PID</a> or a name of <em>A</em>,</li>
+            <li>the value MUST be an inline combination of instantiations of A<sub>1</sub>,...,A<sub>n</sub>.
+                The format of this inline combination (e.g., JSON, JSON-LD, …) MAY depend on the implementation.
+            </li>
+        </ul>
+    </dd>

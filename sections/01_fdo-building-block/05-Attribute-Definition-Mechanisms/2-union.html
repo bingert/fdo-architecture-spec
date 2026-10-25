@@ -1,0 +1,13 @@
+<h4 id="union">Union</h4>
+
+<dt><h4 class="rule-heading" id="rule-r5_9">[R5-9] <dfn data-lt="union type|attribute union">Union Validation</dfn></h4></dt>
+    <dd>
+        An <a>attribute definition</a> A MAY be a union of <a>attribute definitions</a> (a.k.a. “any of”)
+        <em>A<sub>1</sub>,...,A<sub>n</sub></em> by containing the <a>attribute</a> (<a><em>0.FDO/ValidationMechanism</em></a>, Union)
+        and the <a>attributes</a> (<a><em>0.FDO/DataType</em></a>, <em>A<sub>i</sub></em>) for i=1,...,n.
+        To instantiate this <a>attribute definition</a> in another <a>FDO record</a>,
+        <ul>
+            <li>the first element MUST be the <a>PID</a> or a name of <em>A</em>,</li>
+            <li>the value MUST comply with the <a>syntactic rules</a> of at least one of <em>A<sub>1</sub>,...,A<sub>n</sub></em>.</li>
+        </ul>
+    </dd>
