@@ -13,22 +13,27 @@
 <dl>
     <dt>Inputs</dt>
     <dd>
-        This step expects the output of <a href="#step3"></a> as input, namely a list of <a>FDO attributes</a>.
+        <ul>
+            <li>
+                an <a>FDO record</a>: This step expects exactly one well-structured <a>FDO record</a>. Typically, this
+                is the output of <a href="#step3"></a>.
+            </li>
+        </ul>
     </dd>
     <dt>Outputs</dt>
     <dd>
-        The output is a status:
+        The output is a <em>status</em>:
         <ul>
             <li>
-                <em>true</em>: the <a>FDO</a> is of interest to the client and he may proceed to the next step
+                <em>true</em>: The <a>FDO</a> is of interest to the client and he may proceed to the next step.
             </li>
-            <li><em>false</em>: the <a>FDO</a> is not of any interest to the client </li>
+            <li><em>false</em>: The <a>FDO</a> is not of any interest to the client.</li>
         </ul>
     </dd>
     <dt>Expected behavior</dt>
     <dd>
         The client may use all the <a>attributes</a> and potential metadata files (that he finds by inspecting the
-        <em>0.FDO/Metadata</em> <a>attribute</a> and following external references) to come to a conclusion, based on
+        <em><a>0.FDO/Metadata</a></em> <a>attribute</a> and following external references) to come to a conclusion, based on
         his internal evaluation criteria.
     </dd>
 </dl>
