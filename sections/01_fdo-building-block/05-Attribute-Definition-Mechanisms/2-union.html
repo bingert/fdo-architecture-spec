@@ -1,13 +1,43 @@
-<h4 id="union"><dfn>Union of Attributes</dfn></h4>
+<h4 id="union"><dfn data-lt="union|unions|attribute union|attribute unions">Union of Attribute Definitions</dfn></h4>
 
-<dt><h4 class="rule-heading" id="rule-r5_9">[R5-9] <dfn data-lt="union type|attribute union">Union Validation</dfn></h4></dt>
-    <dd>
-        An <a>attribute definition</a> A MAY be a union of <a>attribute definitions</a> (a.k.a. “any of”)
-        <em>A<sub>1</sub>,...,A<sub>n</sub></em> by containing the <a>attribute</a> (<a><em>0.FDO/ValidationMechanism</em></a>, Union)
-        and the <a>attributes</a> (<a><em>0.FDO/DataType</em></a>, <em>A<sub>i</sub></em>) for i=1,...,n.
-        To instantiate this <a>attribute definition</a> in another <a>FDO record</a>,
-        <ul>
-            <li>the first element MUST be the <a>PID</a> or a name of <em>A</em>,</li>
-            <li>the value MUST comply with the <a>syntactic rules</a> of at least one of <em>A<sub>1</sub>,...,A<sub>n</sub></em>.</li>
-        </ul>
-    </dd>
+An <a>attribute definition</a> can be defined to be a <a>union of attribute definitions</a>
+<em>A<sub>1</sub>,...,A<sub>n</sub></em>, <em>n≥1</em>.
+If an <a>attribute definition</a> is a <a>union</a>, this means that any <a>attribute</a> instantiating this
+<a>attribute definition</a> must have a value complying with at least one of the <em>A<sub>1</sub>,...,A<sub>n</sub></em>
+(a.k.a. “any of”). The <a>cardinalities</a> of <em>A<sub>1</sub>,...,A<sub>n</sub></em> are overwritten by the
+<a>cardinality</a> of the <a>union</a>.
+
+<p>
+    To define an <a>attribute definition</a> as a <a>union</a>, the <a>attribute definition</a> <a>record</a> must use the
+    <a>profile</a> <a>0.FDO/AttributeDefUnion</a>. This <a>profile</a> extends the <a>attribute definition profile</a> with the
+    field <a><em>0.FDO/AllowedAttributeInUnion</em></a> (see <a href="#recordSyntaxDefProfile">Table 5</a>). This field
+    lists as its values all <a>attribute definitions</a> <em>A<sub>1</sub>,...,A<sub>n</sub></em> that are part of the
+    <a>union</a>.
+</p>
+
+<div><br/></div>
+<table border="2" id="recordSyntaxDefProfile" class="numbered">
+    <caption style="caption-side:bottom">
+        This table shows the <dfn><em>0.FDO/AttributeDefUnion</em></dfn> profile. The profile extends the <a>attribute
+        definition profile</a> (see <a href="#recordSyntaxDefProfile">Table 3</a>). All fields that are inherited from
+        the <a>attribute definition profile</a> are left out for brevity.
+        To define that this <a>attribute definition</a> is a <a>union</a> of other <a>attributes</a>
+        <em>A<sub>1</sub>,...,A<sub>n</sub></em>, the <em>0.FDO/AllowedAttributeInUnion</em> must be instantiated in an
+        <a>attribute definition</a>, once for each of the <em>A<sub>1</sub>,...,A<sub>n</sub></em>.
+        This table does not include all information about the <a>attributes</a>.
+        Please resolve the <a>attribute definition</a> <a>PIDs</a> via the Handle System or see the
+        <a href="appendixAttrsFDOTypeSystem">appendix</a> of this document.
+    </caption>
+    <tr>
+        <th>PID of <a>Attribute Definition</a></th>
+        <th>Description of the <a>attribute</a></th>
+        <th><a>Cardinality</a> of the <a>attribute</a></th>
+    </tr>
+    <tr>
+        <td><dfn><em>0.FDO/AllowedAttributeInUnion</em></dfn></td>
+        <td>
+            A reference to an <a>attribute definition</a> that is part of the <a>union</a>.
+        </td>
+        <td>0..*</td>
+    </tr>
+</table>
