@@ -1,27 +1,35 @@
 <h3 id="step10">[S-10]: FDO Data Access</h3>
 This step attempts to return the <a>FDO</a>’s data bit-sequence or a reference to it.
 It assumes that <a href="#step4"></a> was completed and that its status indicates that a <a><em>0.FDO/Data</em></a>
-field is present (a Mandatory_Attributes_Status of COMPLETE, DATA_ONLY, TYPE_MISSING, or PROFILE_MISSING).
+field is present (i.e., COMPLETE, DATA_ONLY, TYPE_MISSING, or PROFILE_MISSING).
 <dl>
     <dt>Inputs</dt>
-    <dd>This step expects that <a href="#step4"></a> had a Mandatory_Attributes_Status of COMPLETE, DATA_ONLY,
-        TYPE_MISSING, or PROFILE_MISSING.
-        The Validated_Profiles with their respective <a>attributes</a> from <a href="#step8"></a>.</dd>
-    <dt>Outputs</dt>
     <dd>
-        An object is returned which consists of the following elements:
         <ul>
             <li>
-                Data_Extraction_Status:
+                an <a>FDO record</a>: This step expects exactly one well-structured <a>FDO record</a>. Typically, this
+                is the output of <a href="#step3"></a>.
+            </li>
+        </ul>
+    </dd>
+    <dt>Outputs</dt>
+    <dd>
+        An object is returned which contains a status variable that details whether extracting the data <a>attributes</a>
+        was successful, and the extracted data <a>attributes</a> themselves. In detail:
+        <ul>
+            <li>
+                <em>status</em>:
                 <ul>
                     <li>SUCCESS: All <a><em>0.FDO/Data</em></a> <a>attributes</a> are valid, i.e., they all either
-                    contain the element <em>self</em> or they point to another <a>attribute</a> in the record.</li>
-                    <li>PARTIAL_SUCCESS: Some <a><em>0.FDO/Data</em></a> <a>attributes</a> are valid.</li>
+                    contain the element <em>self</em> or they point to another <a>attribute</a> in the record that could
+                    be extracted.</li>
+                    <li>PARTIAL_SUCCESS: Only some of the <a><em>0.FDO/Data</em></a> <a>attributes</a> are valid and
+                        could be extracted.</li>
                     <li>FAILURE: No <a><em>0.FDO/Data</em></a> <a>attributes</a> is valid.</li>
                 </ul>
             </li>
             <li>
-                Data_Attributes: a list of <a>attributes</a>, each of which contains data either inline, by reference,
+                <em>data_attributes</em>: a list of <a>attributes</a>, each of which contains data either inline, by reference,
                 or its value is <em>self</em>. In the latter case, the <a>record</a> is itself the data of the <a>FDO</a>.
             </li>
         </ul>
@@ -35,34 +43,34 @@ field is present (a Mandatory_Attributes_Status of COMPLETE, DATA_ONLY, TYPE_MIS
         <ul>
             <li>
                 If the <a><em>0.FDO/Data</em></a> <a>attribute</a> has the value <em>self</em>, then
-                (0.FDO/DataAsSelf, self) is added to Data_Attributes. Proceed to the next <a><em>0.FDO/Data</em></a>.
+                (0.FDO/DataAsSelf, self) is added to <em>data_attributes</em>. Proceed to the next <a><em>0.FDO/Data</em></a>.
             </li>
             <li>
                 If the <a><em>0.FDO/Data</em></a> <a>attribute</a> has a different value, it is assumed that the
                 <a>attribute referencing</a> mechanism is applied. It is checked whether this value appears in any other
                 <a>attribute</a> as first element. All such other <a>attributes</a> which are found in the <a>record</a>
                 (<a><em>0.FDO/Data</em></a> is said to be pointing to those via <a>attribute referencing</a>) are added
-                to Data_Attributes. Proceed to the next <a><em>0.FDO/Data</em></a>.
+                to <em>data_attributes</em>. Proceed to the next <a><em>0.FDO/Data</em></a>.
             </li>
         </ul>
-        The Data_Extraction_Status is determined as follows:
+        The status is determined as follows:
         <ul>
-            <li>If the Data_Attributes list is empty, then the Data_Extraction_Status is FAILURE.</li>
+            <li>If the <em>data_attributes</em> list is empty, then the <em>status</em> is FAILURE.</li>
             <li>Else if there are <a><em>0.FDO/Data</em></a> <a>attributes</a> in the <a>record</a> whose value is not
-                <em>self</em> and which do not point anywhere, the Data_Extraction_Status is set to PARTIAL_SUCCESS.
+                <em>self</em> and which do not point anywhere, the <em>status</em> is set to PARTIAL_SUCCESS.
             </li>
-            <li>Else, all data elements were found and the Data_Extraction_Status is set to SUCCESS.</li>
+            <li>Else, all data elements were found and the <em>status</em> is set to SUCCESS.</li>
         </ul>
-        The client should make the best effort to provide the means to access the data collected in the Data_Attributes
+        The client should make the best effort to provide the means to access the data collected in the <em>data_attributes</em>
         list depending on the manner in which the <a>FDO</a> includes its data. To do so, he may first inspect the
-        <a>attribute definitions</a> of the <a>attributes</a> in the Data_Attributes list to find further information or
+        <a>attribute definitions</a> of the <a>attributes</a> in the <em>data_attributes</em> list to find further information or
         instructions.
     </dd>
 </dl>
 
 <aside class="example" title="Finding all data references">
 
-    This example shows an <a>FDO record</a> 10.1234/000 with three <em>0.FDO/Data</em> attributes.
+    This example shows an <a>FDO record</a> 10.1234/000 with three <a><em>0.FDO/Data</em></a> attributes.
     <div> <br/> </div>
 
      <table class="numbered">
@@ -119,8 +127,8 @@ field is present (a Mandatory_Attributes_Status of COMPLETE, DATA_ONLY, TYPE_MIS
 
     Applying the processing step <a href="#step10"></a> returns
     <ul>
-        <li>Data_Extraction_Status: PARTIAL_SUCCESS, because 0.example/InlineData does not point anywhere in the <a>record</a></li>
-        <li>Data_Attributes: [(0.example/HttpUrl, www.my-file.com), (0.example/HttpUrl, www.my-file-2.com),
+        <li>status: PARTIAL_SUCCESS, because 0.example/InlineData does not point anywhere in the <a>record</a></li>
+        <li>data_attributes: [(0.example/HttpUrl, www.my-file.com), (0.example/HttpUrl, www.my-file-2.com),
             (0.example/FdoRef, 21.abc/def)]. The client may continue by attempting to follow those references.
         </li>
     </ul>
