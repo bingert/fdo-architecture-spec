@@ -154,6 +154,17 @@ This section is normative.
 
     <section data-include="sections/01_fdo-building-block/05-Attribute-Definition-Mechanisms/5-attributereferencing.html" id="attrref"></section>
 
+<dl>
+    <dt><h4 class="rule-heading" id="rule-r-attr-6">[R-Attr-6] Combining Attribute Validation Mechanisms</h4></dt>
+    <dd>
+        An <a>attribute definition</a> MAY use several <a>attribute validation mechanisms</a> at the same time. In this
+        case, the <a>attribute definition</a> MUST contain the <a>profiles</a> of all the mechanisms that are used.
+        The <dfn>0.FDO/ValidationStrategyForCombination</dfn> <a>attribute</a> details how <a>validation</a> in such
+        cases MUST be performed: If the value is <em>anyof</em>, this means that at least one
+        <a>attribute validation mechanism</a> MUST apply, while <em>allof</em> means that all
+        <a>attribute validation mechanism</a> MUST apply. The default is <em>allof</em>.
+    </dd>
+</dl>
 
 <dt><h4 class="rule-heading" id="rule-r6_6">[R6-6] <dfn>Community Attribute Definitions</dfn></h4></dt>
     <dd>
