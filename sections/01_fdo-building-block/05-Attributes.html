@@ -172,7 +172,12 @@ This section is normative.
         <a>resources</a> such as vocabularies, ontologies, or terminologies.
     </dd>
 
-    <dt><h4 class="rule-heading" id="rule-r5_14">[R-Attr-8] <dfn>Type System Attribute Definitions</dfn></h4></dt>
+    <dt><h4 class="rule-heading" id="rule-r5_14">[R-Attr-8] <dfn data-lt="
+        type system attribute definition|
+        type system attribute|
+        type system attributes|
+        FDO type system attributes">Type System Attribute Definitions</dfn></h4>
+    </dt>
     <dd>
         All <a>attribute definitions</a> in this specification that use the <em>0.FDO</em> prefix are part of the
         <a>FDO type system</a>. They are defined by the <a>FDO Forum</a> and implemented as handles within the
@@ -183,29 +188,52 @@ This section is normative.
         different <a>FDO implementations</a> and compliance with the <a>type system</a>.
     </dd>
 
-<dt><h4 class="rule-heading" id="rule-r6_6">[R-Attr-9] <dfn>Community Attribute Definitions</dfn></h4></dt>
+    <dt><h4 class="rule-heading" id="rule-r6_6">[R-Attr-9] <dfn data-lt="
+        community-defined attribute definitions|
+        community-defined attribute definition|
+        community attribute definition|
+        community attribute|
+        community attributes">Community Attribute Definitions</dfn></h4>
+    </dt>
     <dd>
         Community-specified <a>attribute definitions</a> MAY be implemented by communities of practice in the DTR or any other suitable open registry [[!RDA-DTR-WG]].
         Special rules apply in case <a>attribute definitions</a> are updated, see <a href="#rule-r11_3"></a> – <a href="#rule-r11_6"></a>.
     </dd>
 </dl>
 
+<aside class="note" title="Categories of Attributes">
+    There are three qualitative categories of <a>attributes</a> (or <a>attribute definitions</a>):
+    mandatory, type system, and community <a>attributes</a>.
+    <ul>
+        <li>
+            <b><a>Mandatory attributes</a></b>:
+            The <a>FDO Forum</a> defines a set of <a>mandatory attributes</a> that MUST be used in each <a>FDO record</a>.
+            This set is defined in the <a>root profile</a> and contains: <a><em>0.FDO/Type</em></a>,
+            <a><em>0.FDO/Profile</em></a>, and <a><em>0.FDO/Data</em></a>.
+        </li>
+        <li>
+            <b><a>FDO Type System attributes</a></b>:
+            The <a>FDO Forum</a> defines a set of <a>attributes</a> that are needed for the functioning of the
+            <a>FDO type system</a>.
+        </li>
+        <li>
+            <b><a>Community attributes</a></b>:
+            <ul>
+                <li>attribute definitions</li>
+                <li>labels</li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        These categories of <a>attributes</a> do not impose additional requirements but help repositories and users to
+        assess <a>validation</a> behavior, interoperability, and long-term interpretability of <a>FDO records</a>.
+    </p>
+</aside>
 
 <dl>
     <dt><h4 class="rule-heading" id="rule-r5_3">[R5-3] <dfn>Attribute Categories</dfn></h4></dt>
-    <dd>There are three qualitative categories of <a>attributes</a> (or <a>attribute definitions</a>):
-        mandatory, optional, and community-defined <a>attributes</a>.
+    <dd>
         <ul>
-            <li>
-                The <a>FDO Forum</a> defines a set of <dfn>mandatory <a>attributes</a></dfn> that MUST be used in each <a>FDO Record</a>.
-                This set is defined in the <a>root profile</a>.
-            </li>
-            <li>
-                The <a>FDO Forum</a> defines a set of <dfn data-lt="optional attribute">optional, but recommended <a>attributes</a></dfn>.
-                These include all <a>attributes</a> needed for the functioning of the <a>FDO type system</a> specified in this document (see <a href="#appendixAttrsFDOTypeSystem"></a>).
-                It also includes some pre-defined <a>attributes</a> which SHOULD be reused by use-cases within their <a>FDO Records</a> and <a>profiles</a> (see <a href="#appendix"></a>).
-                Use-cases SHOULD reuse these <a>attributes</a>, whenever suitable, for better harmonization of <a>FDO attribute</a> information.
-            </li>
             <li>
                 <dfn>Community-defined <a>attributes</a></dfn> are any <a>attributes</a> that are defined by a community of practice (i.e., usually not the <a>FDO Forum</a>).
                 Interoperability between different communities and their <a>attributes</a> can be facilitated by either reusing <a>attributes</a> with their semantic meaning in other communities, defining more generic <a>attributes</a>, or by providing a bidirectional mapping process.
@@ -245,21 +273,3 @@ This section is normative.
         </ul>
     </dd>
 </dl>
-
-<aside class="note" title="Categories of Attributes">
-    <ul>
-        <li>mandatory attributes</li>
-        <li>FDO Type System</li>
-        <li>
-            community attributes
-            <ul>
-                <li>attribute definitions</li>
-                <li>labels</li>
-            </ul>
-        </li>
-    </ul>
-    <p>These levels do not impose additional requirements but help repositories and users to assess
-                        <a>validation</a> behavior, interoperability, and long-term interpretability of
-                        <a>FDO Records</a>.
-                    </p>
-</aside>
