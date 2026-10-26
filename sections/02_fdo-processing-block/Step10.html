@@ -98,11 +98,11 @@ field is present (i.e., COMPLETE, DATA_ONLY, TYPE_MISSING, or PROFILE_MISSING).
         </tr>
         <tr>
             <th scope="row">0.example/HttpUrl</th>
-            <td>www.my-file.com</td>
+            <td>https://www.my-file.com</td>
         </tr>
         <tr>
             <th scope="row">0.example/HttpUrl</th>
-            <td>www.my-file-2.com</td>
+            <td>https://www.my-file-2.com</td>
         </tr>
         <tr>
             <th scope="row">0.example/Description</th>
@@ -128,7 +128,7 @@ field is present (i.e., COMPLETE, DATA_ONLY, TYPE_MISSING, or PROFILE_MISSING).
     Applying the processing step <a href="#step10"></a> returns
     <ul>
         <li>status: PARTIAL_SUCCESS, because 0.example/InlineData does not point anywhere in the <a>record</a></li>
-        <li>data_attributes: [(0.example/HttpUrl, www.my-file.com), (0.example/HttpUrl, www.my-file-2.com),
+        <li>data_attributes: [(0.example/HttpUrl, https://www.my-file.com), (0.example/HttpUrl, https://www.my-file-2.com),
             (0.example/FdoRef, 21.abc/def)]. The client may continue by attempting to follow those references.
         </li>
     </ul>

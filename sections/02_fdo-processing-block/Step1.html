@@ -18,7 +18,7 @@
             <li><em>identifier</em>: A syntactically valid <a>PID</a> (there may be multiple outcomes).</li>
             <li>
                 <em>resolvers</em>: A list with 0 or more resolvers by name in order of probability that may resolve the
-                <a>PID</a>. The resolver should be identified as an <a>FDO</a>.
+                <a>PID</a>. The resolver should be represented in an <a>FDO</a> and identified using its <a>PID</a>.
             </li>
         </ul>
         If the analysis fails, it throws an exception UNRECOGNIZED_IDENTIFIER.
@@ -38,7 +38,7 @@
                 <li>
                     <ul>
                         <li>identifier: https://dx.doi.org/10.500/123</li>
-                        <li>resolvers: [0.example/DNS_RESOLVER]
+                        <li>resolvers: [0.example/HTTP_RESOLVER]
                     </ul>
                 </li>
                 <li>
@@ -57,7 +57,7 @@
                 the identifier_resolvers with the following values:</p>
             <ul>
                 <li>identifier: https://www.ACME.org/fdo/123-245-232</li>
-                <li>resolvers: 0.example/DNS_RESOLVER</li>
+                <li>resolvers: 0.example/HTTP_RESOLVER</li>
             </ul>
         </aside>
     </dd>

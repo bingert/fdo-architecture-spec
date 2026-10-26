@@ -16,15 +16,15 @@
             <li>
                 <em>expected_fdo_profile_list</em>: A list of <a>profiles</a> that the client is looking for. It can be empty
                 indicating that any <a>FDO profile</a> within the <a>FDO record</a> will be accepted. This forces the
-                MATCH_ALL flag described below.
+                ACCEPT_ANY flag described below.
             </li>
             <li>A <em>matching</em> flag:
                 <ul>
-                    <li>ALL_MATCH: Any <a>FDO profile</a> is acceptable. This ignores the <em>expected_fdo_profile_list</em>
+                    <li>ACCEPT_ANY: Any <a>FDO profile</a> is acceptable. This ignores the <em>expected_fdo_profile_list</em>
                         if provided.
                     </li>
-                    <li>EXACT_MATCH: The <a>FDO profiles</a> in the <a>FDO record</a> need to match exactly the
-                        <a>FDO profiles</a> in the <em>expected_fdo_profile_list</em>.
+                    <li>EXACT_MATCH: Every <a>FDO profile</a> in the <a>FDO record</a> must match any of the <a>FDO
+                        profiles</a> in the <em>expected_fdo_profile_list</em>.
                     </li>
                     <li>DERIVED_MATCH: The <a>FDO profiles</a> in the
                         <a>FDO record</a> can be derived <a>profiles</a> from the <em>expected_fdo_profile_list</em>.
