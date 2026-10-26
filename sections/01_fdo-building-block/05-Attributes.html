@@ -164,25 +164,36 @@ This section is normative.
         <a>attribute validation mechanism</a> MUST apply, while <em>allof</em> means that all
         <a>attribute validation mechanism</a> MUST apply. The default is <em>allof</em>.
     </dd>
-</dl>
 
-<dt><h4 class="rule-heading" id="rule-r6_6">[R6-6] <dfn>Community Attribute Definitions</dfn></h4></dt>
+    <dt><h4 class="rule-heading" id="rule-r-attr-7">[R-Attr-7] Additional Attributes in Attribute Definitions</h4></dt>
+    <dd>
+        <a>Attribute definition</a> <a>records</a> MAY have additional <a>attributes</a> and instantiate additional
+        <a>profiles</a> for any reason. This SHOULD be used to relate <a>attribute definitions</a> to existing external
+        <a>resources</a> such as vocabularies, ontologies, or terminologies.
+    </dd>
+
+    <dt><h4 class="rule-heading" id="rule-r5_14">[R-Attr-8] <dfn>FDO Type System Attribute Definitions</dfn></h4></dt>
+    <dd>
+        All <a>attribute definitions</a> using the <em>0.FDO</em> prefix that are mentioned in this specification are defined
+        by the <a>FDO Forum</a> and implemented within the <a>Data Type Registry</a> (DTR). They form the <a>FDO type
+        system</a>.
+        The <a>attribute definitions</a> are implemented as Handles and MUST be either reused by
+        <a>FDO implementations</a>, or be mapped to corresponding <a>attribute definitions</a>or similar concepts using
+        a different technology (see <a href="#I-attribute-mapping"></a>). This ensures interoperability between
+        different <a>FDO implementations</a> and compliance with the <a>type system</a>.
+    </dd>
+
+<dt><h4 class="rule-heading" id="rule-r6_6">[R-Attr-9] <dfn>Community Attribute Definitions</dfn></h4></dt>
     <dd>
         Community-specified <a>attribute definitions</a> MAY be implemented by communities of practice in the DTR or any other suitable open registry [[!RDA-DTR-WG]].
         Special rules apply in case <a>attribute definitions</a> are updated, see <a href="#rule-r11_3"></a> – <a href="#rule-r11_6"></a>.
     </dd>
+</dl>
 
+
+
+-------------
 <dl>
-
-
-
-
-    <dt><h4 class="rule-heading" id="rule-r5_13">[R5-13] <dfn><a>Additional Attributes</a> in <a>Attribute Definition FDOs</a></dfn></h4></dt>
-    <dd>
-        <a>Attribute Definitions</a> MAY have additional <a>attributes</a> and instantiate additional profiles for any reason.
-        This SHOULD be used to relate <a>attribute definitions</a> to existing external <a>resources</a> such as vocabularies, ontologies, or terminologies.
-    </dd>
-
     <dt><h4 class="rule-heading" id="rule-r5_3">[R5-3] <dfn>Attribute Categories</dfn></h4></dt>
     <dd>There are three qualitative categories of <a>attributes</a> (or <a>attribute definitions</a>):
         mandatory, optional, and community-defined <a>attributes</a>.
@@ -231,29 +242,9 @@ This section is normative.
                         </ul>
                     </li>
                 </ul>
-                <aside class="note" title="">
-                    <p>These levels do not impose additional requirements but help repositories and users to assess
-                        <a>validation</a> behavior, interoperability, and long-term interpretability of
-                        <a>FDO Records</a>.
-                    </p>
-                </aside>
+
             </li>
         </ul>
-    </dd>
-
-    <dt><h4 class="rule-heading" id="rule-r5_14">[R5-14] <dfn><a>FDO Forum</a> <a>Attribute Definitions</a></dfn></h4></dt>
-<!--    TODO: This doesnt seem up to date anymore. Remove?-->
-    <dd>
-        The <a>attribute definitions</a> listed in Tables 1–4 (comprising the mandatory and optional <a>attributes</a>
-        defined by the <a>FDO Forum</a>) are implemented within the <a>Data Type Registry</a> (DTR) by the <a>FDO Forum</a>.
-        Those <a>attribute definitions</a> are implemented as Handles and SHOULD be reused in any <a>FDO</a> implementation independent of the used technology.
-        This ensures interoperability between different <a>FDO</a> implementations and compliance with the type system.
-    </dd>
-
-    <dt><h4 class="rule-heading" id="rule-r5_15">[R5-15] <dfn><a>Community Attribute</a> Definitions</dfn></h4></dt>
-    <dd>
-        Community-specified <a>attribute definitions</a> MAY be implemented by communities of practice in the <a>DTR</a> or any other suitable open registry [[!RDA-DTR-WG]].
-        Special rules apply in case <a>attribute definitions</a> are updated, see <a href="#rule-r11_3"></a>- <a href="#rule-r11_6"></a>.
     </dd>
 </dl>
 
@@ -269,4 +260,8 @@ This section is normative.
             </ul>
         </li>
     </ul>
+    <p>These levels do not impose additional requirements but help repositories and users to assess
+                        <a>validation</a> behavior, interoperability, and long-term interpretability of
+                        <a>FDO Records</a>.
+                    </p>
 </aside>
